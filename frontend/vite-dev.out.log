@@ -1,0 +1,18 @@
+
+> campus-book-share-frontend@0.0.1 dev
+> vite --host 127.0.0.1 --port 5173
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m764[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m5173[22m/[39m
+[2m12:00:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BookCard.vue[22m
+[2m12:00:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m12:05:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BookCard.vue[22m
+[2m12:05:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue[22m
+[2m12:10:56[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue[22m
+[2m12:11:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/Home.vue[22m
+[2m12:11:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m13:14:15[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/router/index.js[22m
+[2m13:14:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/AdminEntry.vue[22m
+[2m13:15:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m

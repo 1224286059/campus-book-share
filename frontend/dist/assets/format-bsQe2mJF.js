@@ -1,0 +1,1 @@
+function r(t){return t<10?"0"+t:String(t)}function n(t){if(!t)return"-";var e=new Date(t);return Number.isNaN(e.getTime())?t:e.getFullYear()+"-"+r(e.getMonth()+1)+"-"+r(e.getDate())+" "+r(e.getHours())+":"+r(e.getMinutes())+":"+r(e.getSeconds())}function i(t){return t==null||t===""?"面议":"¥"+Number(t).toFixed(2)}export{n as a,i as f};

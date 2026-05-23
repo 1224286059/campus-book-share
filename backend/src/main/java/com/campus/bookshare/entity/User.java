@@ -17,6 +17,8 @@ public class User {
     private String username;
     private String password;
     private String phone;
+    @TableField("address")
+    private String address;
     private String college;
     private String major;
     private String grade;

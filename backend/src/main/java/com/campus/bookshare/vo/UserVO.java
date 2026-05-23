@@ -9,6 +9,7 @@ public class UserVO {
     private Long id;
     private String username;
     private String phone;
+    private String address;
     private String college;
     private String major;
     private String grade;

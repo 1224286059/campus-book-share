@@ -17,6 +17,7 @@
         <el-table-column label="状态" min-width="120">
           <template #default="{ row }">{{ bookStatusMap[row.status] || row.status }}</template>
         </el-table-column>
+        <el-table-column prop="bookLocation" label="书籍位置" min-width="180" show-overflow-tooltip />
         <el-table-column label="发布时间" min-width="180">
           <template #default="{ row }">{{ formatDateTime(row.createTime) }}</template>
         </el-table-column>

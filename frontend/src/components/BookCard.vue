@@ -13,6 +13,7 @@
         <h3>{{ book.title }}</h3>
         <p>{{ book.major || '未填写专业' }} · {{ book.courseName || '未填写课程' }}</p>
         <p>品相：{{ book.conditionLevel || '未说明' }}</p>
+        <p>位置：{{ book.bookLocation || '待线下沟通' }}</p>
         <div class="book-card__footer">
           <span class="book-card__price">{{ priceText }}</span>
           <span class="book-card__owner">{{ book.ownerUsername || '匿名发布' }}</span>

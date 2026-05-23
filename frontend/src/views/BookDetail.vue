@@ -19,6 +19,7 @@
             <div><span>专业</span><strong>{{ book.major || '-' }}</strong></div>
             <div><span>课程</span><strong>{{ book.courseName || '-' }}</strong></div>
             <div><span>品相</span><strong>{{ book.conditionLevel || '-' }}</strong></div>
+            <div><span>书籍位置</span><strong>{{ book.bookLocation || '待线下沟通' }}</strong></div>
             <div><span>发布者</span><strong>{{ book.ownerUsername || '-' }}</strong></div>
             <div><span>价格说明</span><strong>{{ actionText }}</strong></div>
           </div>
@@ -40,6 +41,7 @@
             <strong>发布者信息</strong>
           </template>
           <p>用户名：{{ book.ownerUsername || '-' }}</p>
+          <p>书籍位置：{{ book.bookLocation || '待线下沟通' }}</p>
           <p>共享方式：{{ shareLabel }}</p>
           <p>当前状态：{{ statusLabel }}</p>
           <p>发布时间：{{ formatDateTime(book.createTime) }}</p>

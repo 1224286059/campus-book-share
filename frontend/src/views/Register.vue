@@ -31,6 +31,11 @@
               </el-form-item>
             </el-col>
             <el-col :span="12">
+              <el-form-item label="常用联系地址" prop="address">
+                <el-input v-model="form.address" placeholder="请输入常用联系地址，如南校区3号宿舍楼" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
               <el-form-item label="学院" prop="college">
                 <el-input v-model="form.college" placeholder="如：信息工程学院" />
               </el-form-item>
@@ -66,6 +71,7 @@ const form = reactive({
   username: '',
   password: '',
   phone: '',
+  address: '',
   college: '',
   major: '',
   grade: ''
@@ -78,6 +84,7 @@ const rules = {
     { min: 6, message: '密码不少于 6 位', trigger: 'blur' }
   ],
   phone: [{ required: true, message: '请输入手机号', trigger: 'blur' }],
+  address: [{ max: 255, message: '常用联系地址不能超过 255 个字符', trigger: 'blur' }],
   college: [{ required: true, message: '请输入学院', trigger: 'blur' }],
   major: [{ required: true, message: '请输入专业', trigger: 'blur' }],
   grade: [{ required: true, message: '请输入年级', trigger: 'blur' }]

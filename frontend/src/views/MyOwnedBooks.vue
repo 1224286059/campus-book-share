@@ -16,6 +16,7 @@
         <el-table-column label="当前状态" min-width="120">
           <template #default="{ row }">{{ bookStatusMap[row.status] || row.status }}</template>
         </el-table-column>
+        <el-table-column prop="bookLocation" label="书籍位置" min-width="180" show-overflow-tooltip />
         <el-table-column label="流转次数" min-width="100">
           <template #default="{ row }">{{ row.circulationCount || 0 }}</template>
         </el-table-column>
@@ -41,6 +42,12 @@
         </el-form-item>
         <el-form-item label="品相">
           <el-input v-model="form.conditionLevel" />
+        </el-form-item>
+        <el-form-item label="书籍位置" prop="bookLocation">
+          <el-input
+            v-model="form.bookLocation"
+            placeholder="请输入书籍当前存放位置，如图书馆一楼、南校区宿舍区、计算机学院楼"
+          />
         </el-form-item>
         <el-form-item label="封面 URL">
           <el-input v-model="form.coverUrl" />
@@ -76,11 +83,13 @@ const form = reactive({
   price: 0,
   description: '',
   conditionLevel: '',
+  bookLocation: '',
   coverUrl: ''
 })
 
 const rules = {
-  shareType: [{ required: true, message: '请选择共享方式', trigger: 'change' }]
+  shareType: [{ required: true, message: '请选择共享方式', trigger: 'change' }],
+  bookLocation: [{ max: 255, message: '书籍位置不能超过 255 个字符', trigger: 'blur' }]
 }
 
 function loadBooks() {
@@ -100,6 +109,7 @@ function openReshare(row) {
   form.price = row.price || 0
   form.description = row.description || ''
   form.conditionLevel = row.conditionLevel || ''
+  form.bookLocation = row.bookLocation || ''
   form.coverUrl = row.coverUrl || ''
   dialogVisible.value = true
 }

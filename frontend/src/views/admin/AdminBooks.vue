@@ -43,6 +43,7 @@
             <el-tag>{{ bookStatusMap[row.status] || row.status }}</el-tag>
           </template>
         </el-table-column>
+        <el-table-column prop="bookLocation" label="书籍位置" min-width="180" show-overflow-tooltip />
         <el-table-column prop="major" label="专业" min-width="130" />
         <el-table-column prop="courseName" label="课程" min-width="140" />
         <el-table-column label="流转次数" min-width="90">
@@ -67,6 +68,7 @@
           <p>发布者：{{ currentBook.ownerUsername }}</p>
           <p>共享方式：{{ shareTypeMap[currentBook.shareType] || currentBook.shareType }}</p>
           <p>状态：{{ bookStatusMap[currentBook.status] || currentBook.status }}</p>
+          <p>书籍位置：{{ currentBook.bookLocation || '待线下沟通' }}</p>
           <p>专业：{{ currentBook.major || '-' }}</p>
           <p>课程：{{ currentBook.courseName || '-' }}</p>
           <p>品相：{{ currentBook.conditionLevel || '-' }}</p>

@@ -43,6 +43,7 @@
   "username": "newuser",
   "password": "123456",
   "phone": "13800001111",
+  "address": "南校区3号宿舍楼",
   "college": "计算机学院",
   "major": "计算机科学与技术",
   "grade": "2024级"
@@ -109,6 +110,7 @@
     "id": 2,
     "username": "zhangsan",
     "phone": "13800000001",
+    "address": "南校区3号宿舍楼",
     "college": "计算机学院",
     "major": "计算机科学与技术",
     "grade": "2022级",
@@ -130,13 +132,14 @@
 - 请求路径：`/user/profile`
 - 是否需要登录：是
 - 是否需要管理员权限：否
-- 说明：修改手机号、学院、专业、年级
+- 说明：修改手机号、常用联系地址、学院、专业、年级
 
 请求示例：
 
 ```json
 {
   "phone": "13800009999",
+  "address": "图书馆附近",
   "college": "软件学院",
   "major": "软件工程",
   "grade": "2023级"
@@ -245,6 +248,7 @@
   "courseName": "编译原理",
   "major": "计算机科学与技术",
   "conditionLevel": "九成新",
+  "bookLocation": "图书馆一楼",
   "coverUrl": "",
   "price": 0,
   "shareType": "DONATE",
@@ -272,6 +276,25 @@
 - 请求路径：`/books/{id}`
 - 是否需要登录：否
 - 是否需要管理员权限：否
+- 说明：返回书籍详情时包含 `bookLocation`，用于展示当前书籍存放位置
+
+返回示例：
+
+```json
+{
+  "code": 200,
+  "message": "success",
+  "data": {
+    "id": 10,
+    "title": "高等数学",
+    "ownerUsername": "zhangsan",
+    "shareType": "DONATE",
+    "status": "ON_SHELF",
+    "bookLocation": "图书馆一楼",
+    "description": "适合新生使用，免费捐赠。"
+  }
+}
+```
 
 ### 4.4 查看我的发布
 
@@ -310,6 +333,7 @@
   "price": 0,
   "description": "再次共享给下一位同学",
   "conditionLevel": "八成新",
+  "bookLocation": "计算机学院楼",
   "coverUrl": ""
 }
 ```

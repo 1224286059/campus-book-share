@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 @Data
@@ -21,6 +22,8 @@ public class BookCreateDTO {
     private String courseName;
     private String major;
     private String conditionLevel;
+    @Size(max = 255, message = "书籍位置长度不能超过255")
+    private String bookLocation;
     private String coverUrl;
 
     @DecimalMin(value = "0.0", inclusive = true, message = "价格不能小于0")

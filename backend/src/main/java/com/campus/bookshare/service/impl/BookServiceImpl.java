@@ -156,6 +156,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
         }
         book.setDescription(dto.getDescription());
         book.setConditionLevel(dto.getConditionLevel());
+        book.setBookLocation(dto.getBookLocation());
         book.setCoverUrl(dto.getCoverUrl());
         book.setStatus(BookStatusEnum.PENDING.name());
         updateById(book);

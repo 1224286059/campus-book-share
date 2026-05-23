@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 @Data
@@ -17,5 +18,7 @@ public class BookReshareDTO {
 
     private String description;
     private String conditionLevel;
+    @Size(max = 255, message = "书籍位置长度不能超过255")
+    private String bookLocation;
     private String coverUrl;
 }

@@ -10,6 +10,7 @@
       <el-table v-loading="loading" :data="users" empty-text="暂无用户数据">
         <el-table-column prop="username" label="用户名" min-width="140" />
         <el-table-column prop="phone" label="手机号" min-width="140" />
+        <el-table-column prop="address" label="常用联系地址" min-width="180" show-overflow-tooltip />
         <el-table-column prop="college" label="学院" min-width="180" />
         <el-table-column prop="major" label="专业" min-width="160" />
         <el-table-column prop="grade" label="年级" min-width="100" />

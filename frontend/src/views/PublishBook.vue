@@ -48,6 +48,14 @@
             </el-form-item>
           </el-col>
           <el-col :md="12" :sm="24">
+            <el-form-item label="书籍位置" prop="bookLocation">
+              <el-input
+                v-model="form.bookLocation"
+                placeholder="请输入书籍当前存放位置，如图书馆一楼、南校区宿舍区、计算机学院楼"
+              />
+            </el-form-item>
+          </el-col>
+          <el-col :md="12" :sm="24">
             <el-form-item label="封面 URL">
               <el-input v-model="form.coverUrl" placeholder="可填写网络图片地址" />
             </el-form-item>
@@ -97,6 +105,7 @@ const form = reactive({
   courseName: '',
   major: '',
   conditionLevel: '',
+  bookLocation: '',
   coverUrl: '',
   price: 0,
   shareType: '',
@@ -106,6 +115,7 @@ const form = reactive({
 const rules = {
   categoryId: [{ required: true, message: '请选择分类', trigger: 'change' }],
   title: [{ required: true, message: '请输入书名', trigger: 'blur' }],
+  bookLocation: [{ max: 255, message: '书籍位置不能超过 255 个字符', trigger: 'blur' }],
   shareType: [{ required: true, message: '请选择共享方式', trigger: 'change' }]
 }
 

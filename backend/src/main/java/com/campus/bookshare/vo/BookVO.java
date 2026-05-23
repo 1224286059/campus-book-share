@@ -19,6 +19,7 @@ public class BookVO {
     private String courseName;
     private String major;
     private String conditionLevel;
+    private String bookLocation;
     private String coverUrl;
     private BigDecimal price;
     private String shareType;

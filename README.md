@@ -17,6 +17,7 @@
 - 使用 `circulation_count` 统计书籍流转次数。
 - 使用 `owner_id` 表示当前持有人。
 - 支持“再次共享”功能，突出循环共享主题。
+- 支持书籍位置展示，便于线下查看存放地点并完成交付。
 - 自动生成积分记录 `points_record`。
 - 支持订单完成后的评价与举报。
 - 支持管理员审核机制，保证书籍上架质量。
@@ -103,6 +104,7 @@ docker-compose up -d
 说明：
 
 - 首次启动时会自动挂载并执行 `sql/schema.sql` 和 `sql/data.sql`
+- 初始化脚本已包含 `user.address` 与 `book.book_location` 字段及示例数据
 - SQL 目录会挂载到容器的 `/docker-entrypoint-initdb.d`
 
 ## 本地 MySQL 初始化方式
@@ -125,7 +127,31 @@ SOURCE sql/data.sql;
 说明：
 
 - 请先确保数据库已创建。
+- `sql/schema.sql` 已同步新增用户常用联系地址和书籍位置字段，`sql/data.sql` 提供了示例地址数据。
 - 如果使用的是 Navicat、DataGrip 或 MySQL Workbench，也可以直接执行这两个 SQL 文件。
+
+### 已运行旧版本数据库的增量更新
+
+如果数据库已经按旧版本初始化过，不要删库重建，直接执行：
+
+1. `sql/update_add_location_fields.sql`
+
+这个脚本用于给旧数据库补充：
+
+- `user.address`
+- `book.book_location`
+
+Docker MySQL 执行方式：
+
+```powershell
+Get-Content .\sql\update_add_location_fields.sql | docker exec -i campus-book-share-mysql mysql -uroot -p123456 campus_book_share
+```
+
+如果当前终端支持输入重定向，也可以使用：
+
+```bash
+docker exec -i campus-book-share-mysql mysql -uroot -p123456 campus_book_share < sql/update_add_location_fields.sql
+```
 
 ## 后端启动方式
 
@@ -188,6 +214,7 @@ npm run build
 - 交换共享
 - 捐赠共享
 - 再次共享
+- 书籍位置展示
 - 订单流转
 - 借阅记录
 - 流转记录
@@ -207,7 +234,7 @@ npm run build
 6. `admin` 审核通过该书。
 7. `lisi / 123456` 登录前台。
 8. `lisi` 在首页看到该捐赠书籍。
-9. `lisi` 进入详情页，点击“申请领取”。
+9. `lisi` 进入详情页，先查看书籍位置后点击“申请领取”。
 10. `zhangsan` 进入“我的订单”，看到收到的申请。
 11. `zhangsan` 点击同意申请。
 12. `lisi` 进入“我的订单”，点击确认完成。
@@ -218,7 +245,7 @@ npm run build
 17. `points_record` 中生成积分记录。
 18. `lisi` 进入“我的持有书籍”页面。
 19. `lisi` 点击“再次共享”。
-20. `lisi` 重新选择共享方式为“借阅”。
+20. `lisi` 重新选择共享方式为“借阅”，并可重新填写新的书籍位置。
 21. 书籍重新进入“待审核”。
 22. `admin` 再次审核通过。
 23. 首页重新显示该书，且共享方式变为“借阅”。

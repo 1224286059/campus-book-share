@@ -19,6 +19,9 @@
           <el-form-item label="手机号" prop="phone">
             <el-input v-model="profileForm.phone" />
           </el-form-item>
+          <el-form-item label="常用地址" prop="address">
+            <el-input v-model="profileForm.address" placeholder="请输入常用联系地址，如南校区3号宿舍楼" />
+          </el-form-item>
           <el-form-item label="学院" prop="college">
             <el-input v-model="profileForm.college" />
           </el-form-item>
@@ -63,6 +66,7 @@ const profileSubmitting = ref(false)
 const passwordSubmitting = ref(false)
 const profileForm = reactive({
   phone: '',
+  address: '',
   college: '',
   major: '',
   grade: ''
@@ -74,6 +78,7 @@ const passwordForm = reactive({
 
 const profileRules = {
   phone: [{ required: true, message: '请输入手机号', trigger: 'blur' }],
+  address: [{ max: 255, message: '常用联系地址不能超过 255 个字符', trigger: 'blur' }],
   college: [{ required: true, message: '请输入学院', trigger: 'blur' }],
   major: [{ required: true, message: '请输入专业', trigger: 'blur' }],
   grade: [{ required: true, message: '请输入年级', trigger: 'blur' }]
@@ -96,6 +101,7 @@ watch(
       return
     }
     profileForm.phone = profile.phone || ''
+    profileForm.address = profile.address || ''
     profileForm.college = profile.college || ''
     profileForm.major = profile.major || ''
     profileForm.grade = profile.grade || ''

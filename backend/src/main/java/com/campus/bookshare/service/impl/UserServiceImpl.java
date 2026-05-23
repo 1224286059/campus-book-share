@@ -47,6 +47,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             throw new BusinessException("用户不存在");
         }
         user.setPhone(dto.getPhone());
+        user.setAddress(dto.getAddress());
         user.setCollege(dto.getCollege());
         user.setMajor(dto.getMajor());
         user.setGrade(dto.getGrade());

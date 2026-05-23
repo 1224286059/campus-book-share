@@ -29,6 +29,8 @@ public class Book {
     private String major;
     @TableField("condition_level")
     private String conditionLevel;
+    @TableField("book_location")
+    private String bookLocation;
     @TableField("cover_url")
     private String coverUrl;
     private BigDecimal price;
